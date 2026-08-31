@@ -6,7 +6,7 @@ import { Copy, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-const EMAIL = "hello@example.com";
+const EMAIL = "ayaan.ahmed@ontariotechu.net";
 
 export function CopyEmailButton() {
   const [isCopied, setIsCopied] = useState(false);

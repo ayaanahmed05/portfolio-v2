@@ -25,7 +25,7 @@ export function SiteNav() {
           href="/"
           className="shrink-0 font-mono text-xs font-semibold tracking-[-0.02em] text-foreground transition-opacity hover:opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          JANE DOE<span className="text-accent-foreground">.</span>
+          AYAAN AHMED<span className="text-accent-foreground">.</span>
         </Link>
 
         <div className="flex min-w-0 items-center gap-1 overflow-x-auto font-mono text-[0.68rem] uppercase tracking-[0.1em] sm:gap-2">
