@@ -34,18 +34,24 @@ export default function ProjectsPage() {
         </p>
       </header>
 
-      <div className="mt-16 grid grid-flow-dense gap-5 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      <div className="mt-16 columns-1 gap-5 sm:mt-20 sm:columns-2 lg:columns-3 lg:gap-6 space-y-5 lg:space-y-6">
         {projects.map((project) => (
           <Card key={project.slug} className="transition-shadow duration-500 hover:shadow-[0_1rem_3rem_-1.5rem_oklch(0.225_0.015_255_/_0.32)]">
             {project.imagePath ? (
               <div className="group relative mx-4 aspect-[16/10] overflow-hidden rounded-lg border border-border bg-muted/45">
-                <Image
-                  src={project.imagePath}
-                  alt={`${project.title} preview`}
-                  fill
-                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+                <Link
+                  href={`/projects/${project.slug}`}
+                  aria-label={`Preview image for ${project.title}`}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={project.imagePath}
+                    alt={`${project.title} preview`}
+                    fill
+                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </Link>
               </div>
             ) : (
               <div
