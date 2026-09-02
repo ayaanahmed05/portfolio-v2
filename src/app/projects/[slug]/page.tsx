@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 
@@ -45,7 +46,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
       </Link>
       <header className="mt-14 border-b border-border pb-12 sm:mt-20 sm:pb-16">
         <p className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-muted-foreground">
-          Case study / [Placeholder]
+          Projects / Overview
         </p>
         <h1 className="mt-5 text-balance text-[clamp(3.25rem,6vw,6rem)] font-medium leading-[0.94] tracking-[-0.065em] text-foreground">
           {project.title}
@@ -60,6 +61,18 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </div>
       </header>
       <div className="mt-12 flex max-w-2xl flex-col gap-6 sm:mt-16">
+        {project.imagePath && (
+          <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-border/60 bg-muted shadow-sm">
+            <Image
+              src={project.imagePath}
+              alt={`${project.title} preview`}
+              fill
+              priority
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="object-cover transition-transform duration-500 ease-out hover:scale-[1.02]"
+            />
+          </div>
+        )}
         <CaseStudy />
       </div>
     </article>
