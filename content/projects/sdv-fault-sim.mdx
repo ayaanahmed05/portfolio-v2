@@ -1,0 +1,10 @@
+### Overview
+Designed and built an end-to-end vehicular digital twin and fault-simulation ecosystem to validate fail-safe behavior in software-defined vehicles. The system couples real-time telemetry streaming with automated hardware/software fault scenarios to verify system resilience before physical deployment.
+
+### Key Features & Engineering
+
+* **5-Layer Architecture:** Integrated Eclipse Kuksa, Eclipse Ditto, Zenoh, OpenSOVD, and openDuT to handle the entire lifecycle from vehicle telemetry and digital twin state-sync to diagnostic routing.
+* **Automated Fault Injection:** Simulated real-world failure states—including signal drops, voltage drops, and sensor threshold breaches—to evaluate automated recovery logic.
+* **Microservices & Containerization:** Developed modular Python and Rust microservices orchestrated via Docker Compose for reproducible, CLI-driven developer testing.
+* **Continuous Testing & Benchmarking:** Embedded automated test suites into a Jenkins CI/CD pipeline, maintaining a 95th-percentile latency under 50ms at 300+ msg/sec throughput.
+* **Technical Documentation:** Authored complete operational guides, API interface specifications, system architecture diagrams, and benchmark reports.

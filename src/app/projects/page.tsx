@@ -15,7 +15,7 @@ import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Placeholder case studies for Jane Doe.",
+  description: "Projects that Ayaan Ahmed has worked on, showcasing a range of technical skills and expertise.",
 };
 
 export default function ProjectsPage() {
@@ -26,12 +26,10 @@ export default function ProjectsPage() {
           Selected work
         </p>
         <h1 className="mt-5 text-balance text-[clamp(3.25rem,6vw,6rem)] font-medium leading-[0.95] tracking-[-0.065em] text-foreground">
-          Placeholder projects,
-          <br />
-          ready for your work.
+          A collection of systems, AI, and full-stack builds.
         </h1>
         <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. [Replace this with a short introduction to your selected work.]
+          A showcase of technical work spanning real-time C++ simulations, automated fault-testing pipelines, award-winning machine learning applications, and full-stack AI platforms.
         </p>
       </header>
 
@@ -63,29 +61,33 @@ export default function ProjectsPage() {
               </div>
             </CardContent>
             <CardFooter className="mt-2 flex flex-wrap gap-x-5 gap-y-3">
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                Live demo
-                <ArrowUpRight className="size-3.5" aria-hidden="true" />
-              </a>
-              <a
-                href={project.repositoryUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                GitHub repo
-                <GitBranch className="size-3.5" aria-hidden="true" />
-              </a>
+              {project.liveUrl &&
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  Live demo
+                  <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                </a>
+              }
+              {project.repositoryUrl && (
+                <a
+                  href={project.repositoryUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  GitHub repo
+                  <GitBranch className="size-3.5" aria-hidden="true" />
+                </a>
+              )}
               <Link
                 href={`/projects/${project.slug}`}
                 className="ml-auto inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-primary transition-opacity hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Case study
+                Overview
                 <ArrowUpRight className="size-3.5" aria-hidden="true" />
               </Link>
             </CardFooter>
