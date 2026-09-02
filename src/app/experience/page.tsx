@@ -29,12 +29,10 @@ export default function ExperiencePage() {
           Experience
         </p>
         <h1 className="mt-5 text-balance text-[clamp(3.25rem,6vw,6rem)] font-medium leading-[0.95] tracking-[-0.065em] text-foreground">
-          A placeholder record
-          <br />
-          of building and leading.
+          A track record of technical experience and leadership.
         </h1>
         <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. [Replace this with a concise introduction to your experience.]
+          A summary of my hands-on experience, team leadership, and technical contributions in fast-paced engineering environments.
         </p>
       </header>
 
