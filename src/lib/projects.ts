@@ -55,6 +55,15 @@ export const projects: readonly Project[] = [
     repositoryUrl: "https://github.com/ayaanahmed05/Maze-Solver",
   },
   {
+    slug: "spam-email",
+    title: "Spam Email Classifier",
+    description: "Developed an automated natural language processing (NLP) and machine learning pipeline to classify incoming emails as spam or ham (legitimate). Designed to minimize security risks and clean inbox clutter, the platform processes raw email text through tokenization and TF-IDF feature extraction before passing data to trained supervised models for high-precision, real-time prediction.",
+    technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy", "NLTK (Natural Language Toolkit)", "TF-IDF Vectorizer", "Jupyter Notebooks"],
+    imagePath: "/projects/spam-mail.png",
+    // liveUrl: "https://example.com",
+    repositoryUrl: "https://github.com/ayaanahmed05/Maze-Solver",
+  },
+  {
     slug: "nutri-ai",
     title: "NutriAI - AI-Powered Meal Plan Generator",
     description: "Built NutriAI: a full-stack, AI-powered meal planning application—in under 12 hours during HackHive 2024. Integrated a local Microsoft Phi-3.5-mini-instruct LLM with a Node.js/Express backend and React frontend to transform complex user dietary requirements into personalized, structured meal plans.",
