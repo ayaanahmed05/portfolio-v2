@@ -24,8 +24,10 @@ function ImagePlaceholder({ label }: { label: string }) {
   );
 }
 
-const components: MDXComponents = {
+const customComponents: MDXComponents = {
+  Callout, 
   ImagePlaceholder,
+  Image,
   img: ({ src, alt }) => {
     if (!src) return null;
 
@@ -65,10 +67,9 @@ const components: MDXComponents = {
   code: (props) => <code className="font-mono text-[0.85em] text-foreground" {...props} />,
 };
 
-export function useMDXComponents(): MDXComponents {
+export function useMDXComponents(components: MDXComponents): MDXComponents {
   return { 
     ...components, 
-    Callout, 
-    Image: components.img,
+    ...customComponents,
   };
 }

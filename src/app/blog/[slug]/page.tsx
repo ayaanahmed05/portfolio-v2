@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 
 import { getPostBySlug, posts } from "@/lib/posts";
+import { useMDXComponents } from "../../../mdx-components";
 
 type ArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -32,6 +33,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const { default: Article } = await import(`../../../../content/blog/${slug}.mdx`);
+  const components = useMDXComponents({});
 
   return (
     <article className="mx-auto w-full max-w-[88rem] px-5 py-16 sm:px-8 sm:py-24 lg:px-12 lg:py-32">
@@ -79,7 +81,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       )}
 
       <div className="mx-auto mt-14 flex max-w-prose flex-col gap-6 sm:mt-20">
-        <Article />
+        <Article components={components} />
       </div>
     </article>
   );

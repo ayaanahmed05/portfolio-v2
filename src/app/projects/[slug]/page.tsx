@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 
 import { getProjectBySlug, projects } from "@/lib/projects";
+import { useMDXComponents } from "../../../mdx-components";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -34,6 +35,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
   }
 
   const { default: CaseStudy } = await import(`../../../../content/projects/${slug}.mdx`);
+  const components = useMDXComponents({});
 
   return (
     <article className="mx-auto w-full max-w-4xl px-5 py-20 sm:px-8 sm:py-28 lg:py-36">
@@ -73,7 +75,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
             />
           </div>
         )}
-        <CaseStudy />
+        <CaseStudy components={components} />
       </div>
     </article>
   );
