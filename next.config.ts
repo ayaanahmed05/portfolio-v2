@@ -6,7 +6,15 @@ const nextConfig: NextConfig = {
   output: "export",
   images: {
     unoptimized: true,
-  }
+  },
+  turbopack: {
+    rules: {
+      "*.mdx": {
+        loaders: ["@mdx-js/loader"],
+        as: "*.js",
+      },
+    },
+  },
 };
 
 const withMDX = createMDX({});
