@@ -19,7 +19,7 @@ export default function BlogPage() {
           A bit of everything.
         </h1>
         <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">
-          Stories from hackathons, random life updates, and notes on projects I'm working on.
+          Stories from hackathons, random life updates, and notes on projects I&apos;m working on.
         </p>
       </header>
       <BlogIndex posts={posts} />

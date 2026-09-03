@@ -7,21 +7,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  turbopack: {
-    rules: {
-      "**/*.mdx": {
-        loaders: ["@mdx-js/loader"],
-        as: "*.js",
-      },
-    },
-  },
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.mdx?$/,
-      use: ["@mdx-js/loader"],
-    });
-    return config;
-  },
 };
 
 const withMDX = createMDX({});
