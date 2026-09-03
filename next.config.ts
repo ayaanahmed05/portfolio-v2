@@ -9,11 +9,18 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     rules: {
-      "*.mdx": {
+      "**/*.mdx": {
         loaders: ["@mdx-js/loader"],
         as: "*.js",
       },
     },
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.mdx?$/,
+      use: ["@mdx-js/loader"],
+    });
+    return config;
   },
 };
 
