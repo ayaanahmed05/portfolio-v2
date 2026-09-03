@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+// import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -21,16 +21,16 @@ type BlogIndexProps = {
   posts: readonly BlogPost[];
 };
 
-const filters = ["All", "Technical Write-ups", "Hackathon Recaps"] as const;
-type Filter = (typeof filters)[number];
+// const filters = ["All", "Technical Write-ups", "Hackathon Recaps"] as const;
+// type Filter = (typeof filters)[number];
 
 export function BlogIndex({ posts }: BlogIndexProps) {
-  const [activeFilter, setActiveFilter] = useState<Filter>("All");
-  const visiblePosts = activeFilter === "All" ? posts : posts.filter((post) => post.category === activeFilter);
+  // const [activeFilter, setActiveFilter] = useState<Filter>("All");
+  // const visiblePosts = activeFilter === "All" ? posts : posts.filter((post) => post.category === activeFilter);
 
   return (
     <div className="mt-14 sm:mt-20">
-      <div className="flex flex-wrap gap-2" aria-label="Filter articles">
+      {/* <div className="flex flex-wrap gap-2" aria-label="Filter articles">
         {filters.map((filter) => (
           <Button
             key={filter}
@@ -42,10 +42,10 @@ export function BlogIndex({ posts }: BlogIndexProps) {
             {filter}
           </Button>
         ))}
-      </div>
+      </div> */}
 
       <div className="mt-8 grid grid-flow-dense gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-        {visiblePosts.map((post, index) => (
+        {posts.map((post, index) => (
           <Card
             key={post.slug}
             className={index === 0 ? "md:col-span-2 lg:col-span-2" : undefined}
@@ -82,9 +82,11 @@ export function BlogIndex({ posts }: BlogIndexProps) {
         </div>
       )}
             <CardHeader>
-              <Badge variant="secondary" className="font-mono text-[0.65rem] tracking-[0.08em]">
-                {post.category}
-              </Badge>
+              {post.category && (
+                <Badge variant="secondary" className="font-mono text-[0.65rem] tracking-[0.08em]">
+                  {post.category}
+                </Badge>
+              )}
               <CardTitle className={index === 0 ? "text-2xl tracking-[-0.04em] sm:text-3xl" : "text-xl tracking-[-0.03em]"}>
                 {post.title}
               </CardTitle>
