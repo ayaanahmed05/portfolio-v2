@@ -44,14 +44,14 @@ export function BlogIndex({ posts }: BlogIndexProps) {
         ))}
       </div> */}
 
-      <div className="mt-8 grid grid-flow-dense gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      <div className="mt-8 grid grid-flow-dense items-start gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {posts.map((post, index) => (
           <Card
             key={post.slug}
-            className={index === 0 ? "md:col-span-2 lg:col-span-2" : undefined}
+            className={`p-0 overflow-hidden ${index === 0 ? "md:col-span-2 lg:col-span-2" : ""}`}
           >
             {post.imagePath ? (
-        <div className="group relative mx-4 aspect-[16/9] overflow-hidden rounded-lg border border-border bg-muted/45">
+        <div className="group relative aspect-[16/9] w-full overflow-hidden border-b border-border bg-muted/45">
           <Link
             href={`/blog/${post.slug}`}
             aria-label={`Thumbnail for ${post.title}`}
@@ -70,7 +70,7 @@ export function BlogIndex({ posts }: BlogIndexProps) {
         <div
           aria-label={`Placeholder thumbnail for ${post.title}`}
           role="img"
-          className="site-grid group relative mx-4 aspect-[16/9] overflow-hidden rounded-lg border border-border bg-muted/45"
+          className="site-grid group relative aspect-[16/9] w-full overflow-hidden border-b border-border bg-muted/45"
         >
           <div
             aria-hidden="true"
