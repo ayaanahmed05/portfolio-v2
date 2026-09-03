@@ -15,11 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ayaanahmed.dev"),
   title: {
-    default: "Jane Doe — Portfolio",
-    template: "%s — Jane Doe",
+    default: "Ayaan Ahmed — Portfolio",
+    template: "%s — Ayaan Ahmed",
   },
-  description: "A placeholder portfolio for Jane Doe.",
+  description:
+    "Software Engineering student at Ontario Tech University. Portfolio showcasing systems engineering, AI platforms, and technical leadership.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

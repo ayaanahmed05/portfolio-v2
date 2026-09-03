@@ -59,7 +59,6 @@ export function SiteFooter() {
       </div>
       <div className="mx-auto flex max-w-[88rem] items-center justify-between gap-5 border-t border-border px-5 py-5 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground sm:px-8 lg:px-12">
         <span>© {new Date().getFullYear()} Ayaan Ahmed</span>
-        {/* <span>Built as a placeholder</span> */}
       </div>
     </footer>
   );

@@ -12,7 +12,7 @@ import { experience } from "@/lib/experience";
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: "Placeholder experience timeline for Jane Doe.",
+  description: "Professional experience, internships, and technical leadership timeline for Ayaan Ahmed.",
 };
 
 const labels = {
