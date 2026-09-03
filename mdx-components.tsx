@@ -1,4 +1,13 @@
 import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
+
+function Callout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="my-6 rounded-lg border border-border bg-muted/50 p-4 text-sm text-foreground">
+      {children}
+    </div>
+  );
+}
 
 function ImagePlaceholder({ label }: { label: string }) {
   return (
@@ -17,6 +26,28 @@ function ImagePlaceholder({ label }: { label: string }) {
 
 const components: MDXComponents = {
   ImagePlaceholder,
+  img: ({ src, alt }) => {
+    if (!src) return null;
+
+    return (
+      <figure className="my-10 flex flex-col items-center">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg border border-border/70 bg-muted/30 shadow-xs transition-shadow hover:shadow-md">
+          <Image
+            src={src}
+            alt={alt || "Article illustration"}
+            fill
+            sizes="(max-width: 768px) 100vw, 720px"
+            className="object-cover transition-transform duration-700 ease-out hover:scale-[1.015]"
+          />
+        </div>
+        {alt && (
+          <figcaption className="mt-3 text-center font-mono text-[0.7rem] uppercase tracking-[0.08em] text-muted-foreground/80">
+            {alt}
+          </figcaption>
+        )}
+      </figure>
+    );
+  },
   h2: (props) => (
     <h2
       className="mt-14 text-2xl font-medium tracking-[-0.04em] text-foreground sm:text-3xl"
@@ -35,5 +66,9 @@ const components: MDXComponents = {
 };
 
 export function useMDXComponents(): MDXComponents {
-  return components;
+  return { 
+    ...components, 
+    Callout, 
+    Image: components.img,
+  };
 }

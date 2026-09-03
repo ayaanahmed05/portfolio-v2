@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 import { getPostBySlug, posts } from "@/lib/posts";
 
@@ -51,16 +52,32 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <span>{post.publishedAt}</span>
         </div>
       </header>
-      <div
-        aria-label={`Placeholder hero image for ${post.title}`}
-        role="img"
-        className="site-grid relative mx-auto mt-12 aspect-[16/9] max-w-6xl overflow-hidden rounded-xl border border-border bg-muted/45 sm:mt-16"
-      >
-        <div aria-hidden="true" className="absolute -right-16 -top-16 size-64 rounded-full border border-primary/40" />
-        <span className="absolute bottom-6 left-6 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
-          [Placeholder hero image]
-        </span>
-      </div>
+      
+      {/* Hero Image / Placeholder Backup */}
+      {post.imagePath ? (
+        <div className="relative mx-auto mt-12 aspect-[16/9] max-w-6xl overflow-hidden rounded-xl border border-border bg-muted/45 sm:mt-16">
+          <Image
+            src={post.imagePath}
+            alt={`${post.title} hero image`}
+            fill
+            priority
+            sizes="(max-width: 1280px) 100vw, 1152px"
+            className="object-cover"
+          />
+        </div>
+      ) : (
+        <div
+          aria-label={`Placeholder hero image for ${post.title}`}
+          role="img"
+          className="site-grid relative mx-auto mt-12 aspect-[16/9] max-w-6xl overflow-hidden rounded-xl border border-border bg-muted/45 sm:mt-16"
+        >
+          <div aria-hidden="true" className="absolute -right-16 -top-16 size-64 rounded-full border border-primary/40" />
+          <span className="absolute bottom-6 left-6 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+            [Placeholder hero image]
+          </span>
+        </div>
+      )}
+
       <div className="mx-auto mt-14 flex max-w-prose flex-col gap-6 sm:mt-20">
         <Article />
       </div>

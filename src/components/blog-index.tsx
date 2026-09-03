@@ -15,6 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import type { BlogPost } from "@/lib/posts";
+import Image from "next/image";
 
 type BlogIndexProps = {
   posts: readonly BlogPost[];
@@ -49,16 +50,37 @@ export function BlogIndex({ posts }: BlogIndexProps) {
             key={post.slug}
             className={index === 0 ? "md:col-span-2 lg:col-span-2" : undefined}
           >
-            <div
-              aria-label={`Placeholder thumbnail for ${post.title}`}
-              role="img"
-              className="site-grid group relative mx-4 aspect-[16/9] overflow-hidden rounded-lg border border-border bg-muted/45"
-            >
-              <div aria-hidden="true" className="absolute -right-9 -top-9 size-32 rounded-full border border-primary/40 transition-transform duration-700 ease-out group-hover:scale-125" />
-              <span className="absolute bottom-5 left-5 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-muted-foreground">
-                [Placeholder thumbnail]
-              </span>
-            </div>
+            {post.imagePath ? (
+        <div className="group relative mx-4 aspect-[16/9] overflow-hidden rounded-lg border border-border bg-muted/45">
+          <Link
+            href={`/blog/${post.slug}`}
+            aria-label={`Thumbnail for ${post.title}`}
+            className="absolute inset-0"
+          >
+            <Image
+              src={post.imagePath}
+              alt={`${post.title} thumbnail`}
+              fill
+              sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          </Link>
+        </div>
+      ) : (
+        <div
+          aria-label={`Placeholder thumbnail for ${post.title}`}
+          role="img"
+          className="site-grid group relative mx-4 aspect-[16/9] overflow-hidden rounded-lg border border-border bg-muted/45"
+        >
+          <div
+            aria-hidden="true"
+            className="absolute -right-9 -top-9 size-32 rounded-full border border-primary/40 transition-transform duration-700 ease-out group-hover:scale-125"
+          />
+          <span className="absolute bottom-5 left-5 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-muted-foreground">
+            [Placeholder thumbnail]
+          </span>
+        </div>
+      )}
             <CardHeader>
               <Badge variant="secondary" className="font-mono text-[0.65rem] tracking-[0.08em]">
                 {post.category}
