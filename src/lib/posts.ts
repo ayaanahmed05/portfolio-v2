@@ -31,6 +31,15 @@ export const posts: readonly BlogPost[] = [
   },
 ] as const;
 
+export function getBlogPosts(): readonly BlogPost[] {
+  return posts;
+}
+
+export function getRecentPosts(limit = 2): readonly BlogPost[] {
+  return posts.slice(0, limit);
+}
+
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return posts.find((post) => post.slug === slug);
 }
+

@@ -6,6 +6,7 @@ export type Project = {
   imagePath?: string;
   liveUrl?: string;
   repositoryUrl?: string;
+  featured?: boolean;
 };
 
 export const projects: readonly Project[] = [
@@ -17,6 +18,7 @@ export const projects: readonly Project[] = [
     imagePath: "/projects/smr.jpeg",
     // liveUrl: "https://example.com",
     repositoryUrl: "https://github.com/ayaanahmed05/SMR-Control-Room-Decision-Support-System/",
+    featured: true,
   },
   {
     slug: "sdv-fault-sim",
@@ -26,6 +28,7 @@ export const projects: readonly Project[] = [
     imagePath: "/projects/sdv-fault-sim.jpg",
     // liveUrl: "https://example.com",
     repositoryUrl: "https://github.com/ayaanahmed05/vehicular-digital-twin-pipeline",
+    featured: true,
   },
   {
     slug: "battery-chatbot",
@@ -103,3 +106,9 @@ export const projects: readonly Project[] = [
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
 }
+
+export function getFeaturedProjects(limit = 2): readonly Project[] {
+  const featured = projects.filter((project) => project.featured);
+  return (featured.length > 0 ? featured : projects).slice(0, limit);
+}
+

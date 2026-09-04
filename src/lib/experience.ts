@@ -87,3 +87,14 @@ export const experience: readonly ExperienceItem[] = [
     ],
   },
 ] as const;
+
+export const experienceLabels: Record<ExperienceItem["type"], string> = {
+  internship: "Industry",
+  leadership: "Leadership",
+  education: "Education",
+};
+
+export function getRecentExperience(limit = 2): readonly ExperienceItem[] {
+  return experience.slice(0, limit);
+}
+

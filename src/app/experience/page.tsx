@@ -8,18 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { experience } from "@/lib/experience";
+import { experience, experienceLabels } from "@/lib/experience";
 
 export const metadata: Metadata = {
   title: "Experience",
   description: "Professional experience, internships, and technical leadership timeline for Ayaan Ahmed.",
 };
-
-const labels = {
-  internship: "Industry",
-  leadership: "Leadership",
-  education: "Education",
-} as const;
 
 export default function ExperiencePage() {
   return (
@@ -48,7 +42,7 @@ export default function ExperiencePage() {
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex flex-col gap-2">
                     <Badge variant="secondary" className="font-mono text-[0.65rem] tracking-[0.08em]">
-                      {labels[item.type]}
+                      {experienceLabels[item.type]}
                     </Badge>
                     <CardTitle>{item.role}</CardTitle>
                     <CardDescription>{item.organization}</CardDescription>
