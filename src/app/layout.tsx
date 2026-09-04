@@ -4,6 +4,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
 import "./globals.css";
 
+import { SITE_URL } from "@/lib/utils";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ayaanahmed.dev"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Ayaan Ahmed — Portfolio",
     template: "%s — Ayaan Ahmed",
