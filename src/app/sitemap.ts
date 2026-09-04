@@ -5,6 +5,8 @@ import { projects } from '@/lib/projects'
 
 import { SITE_URL } from '@/lib/utils'
 
+export const dynamic = 'force-static'
+
 // Safe date parser to handle "May 12th, 2025" style strings
 function parsePublicationDate(dateStr?: string): string {
   if (!dateStr) return new Date().toISOString()
